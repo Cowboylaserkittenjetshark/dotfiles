@@ -1,0 +1,16 @@
+server_host = '127.0.0.1'
+server_port = 45045
+finder = 'custom_finder'
+
+[rofi]
+line_length = 100
+menu_length = 30
+
+[dmenu]
+line_length = 100
+menu_length = 30
+
+[custom_finder]
+program = 'rofi'
+args = [-no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/polybar/forest/scripts/rofi/launcher.rasi]
+
