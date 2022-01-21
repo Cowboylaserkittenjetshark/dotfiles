@@ -50,7 +50,7 @@ services:
     container_name: openvpn
     hostname: openvpn
     ports:
-     - "1194:1194/tcp"
+      - "1194:1194/tcp"
     restart: unless-stopped
     volumes:
      - ./openvpn-data/conf:/etc/openvpn

@@ -22,6 +22,7 @@ alias a='alsamixer -c 1'
 alias kfox='pkill -f firefox'
 alias wiki='nvim +VimwikiIndex'
 alias diary='nvim +VimwikiDiaryIndex'
+alias dotgit='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME' # Dotfiles
 ### Keybindings ###
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
