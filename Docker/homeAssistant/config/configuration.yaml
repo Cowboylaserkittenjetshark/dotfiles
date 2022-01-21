@@ -1,0 +1,30 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 192.168.0.0/16
+    - 172.16.0.0/12
+    - 127.0.0.1
+  #ssl_certificate: /config/certs/fullchain2.pem
+  #ssl_key: /config/certs/privkey2.pem
+  ip_ban_enabled: true
+  login_attempts_threshold: 3
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+google_assistant:
+    project_id: home-assistant-bridge-50c57
+    service_account: !include /config/home-assistant-bridge-50c57-4907bca5f46e.json
+    report_state: true
+    exposed_domains:
+        - switch
