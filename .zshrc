@@ -18,7 +18,7 @@ prompt pure
 #
 ### Aliases ###
 alias ls='ls --color=auto'
-alias a='alsamixer -c 1'
+alias a='alsamixer'
 alias kfox='pkill -f firefox'
 alias wiki='nvim +VimwikiIndex'
 alias diary='nvim +VimwikiDiaryIndex'
