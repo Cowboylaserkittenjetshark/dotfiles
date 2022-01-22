@@ -16,6 +16,8 @@ neofetch | lolcat
 autoload -Uz promptinit; promptinit
 prompt pure
 #
+### Environment Variables ###
+export PATH=$PATH:$HOME/.local/bin/
 ### Aliases ###
 alias ls='ls --color=auto'
 alias a='alsamixer'
