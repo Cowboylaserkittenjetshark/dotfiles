@@ -12,7 +12,7 @@ fi
 $HOME/.config/polybar/launch.sh --forest &
 pgrep -x sxhkd > /dev/null || sxhkd &
 picom --experimental-backend &
-feh --bg-fill /home/ashton/.config/split.png &
+feh --bg-fill /home/ashton/.config/split_catppuccin.png &
 dunst -config /home/ashton/.config/dunst/dunstrc &
 # light-locker &
 clipcatd -r &
