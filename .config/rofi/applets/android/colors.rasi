@@ -19,4 +19,4 @@
  *
  */
 
-@import "../styles/material-dark/deep_purple.rasi"
+@import "../styles/material-dark/catppuccin.rasi"
