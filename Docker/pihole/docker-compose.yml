@@ -11,10 +11,10 @@ services:
     mac_address: d0:ca:ab:cd:ef:01
     networks:
       pihole_network:
-        ipv4_address: 192.168.0.199
+        ipv4_address: 192.168.86.199
     dns:
       - 127.0.0.1
-      - 8.8.8.8
+      - 9.9.9.9
 
 # For DHCP it is recommended to remove these ports and instead add: network_mode: "host"
     ports:
@@ -27,9 +27,9 @@ services:
       TZ: 'America/Chicago'
       ADMIN_EMAIL: 'cowboylaserkittenjetshark@gmail.com'
       TEMPERATUREUNIT: 'f'
-      DHCP_ROUTER: '192.168.0.1'
+      DHCP_ROUTER: '192.168.86.1'
       WEBPASSWORD: 'hhuPSN2neSN7cFWpci9ecLXUCZJxiK8scrWmEUEqASGVHn2fUNUd4TgCNZQ6ynZ7f5QY5cmYbW3wvmmgMMX63LVdMr6rQdePVYJYBxzMEkHz8b2hdxZWzqw5mgu9rX6c'
-      ServerIP: '192.168.0.199'
+      ServerIP: '192.168.86.199'
       VIRTUAL_HOST: 'pihole.pi.hole'
 
 # Volumes store your data between container upgrades
@@ -51,6 +51,6 @@ networks:
       parent: enp34s0
     ipam:
       config:
-        - subnet: "192.168.0.0/24"
-          gateway: "192.168.0.1"
-          ip_range: "192.168.0.238/28"
+        - subnet: "192.168.86.0/24"
+          gateway: "192.168.86.1"
+          ip_range: "192.168.86.238/28"
