@@ -14,32 +14,32 @@ configuration {
     display-drun: 					"";
     drun-display-format:            "{name}";
     disable-history:                false;
-    fullscreen:                     false;
-	hide-scrollbar: 				true;
-	sidebar-mode: 					true;
+	sidebar-mode: 					false;
 }
 
 /* -- Light -- */
-/* {
-    background:                     #212121;
+* {
+    background:                     #e5e5e5ff;
     background-alt:              	#00000000;
     background-bar:                 #FFFFFFFF;
-    foreground:                     #bdbdbd;
+    foreground:                     #000000A6;
     accent:			            	#80808066;
     border:		               		#1A73E9FF;
-    selected:               		#;
-} */
+    selected:               		#D7D7D7FF;
+}
 
 /* -- Dark -- */
- * {
-    background:                     #212121;
+/*
+* {
+    background:                     #212121ff;
     background-alt:              	#00000000;
-    background-bar:                 #151515ff;
+    background-bar:                 #151515FF;
     foreground:                     #EDEDEDFF;
-    accent:			            	#7e57c2;
-    border:		               		#7e57c2;
-    selected:               		#272727;
+    accent:			            	#EDEDED4d;
+    border:		               		#1A73E9FF;
+    selected:               		#151515ff;
 }
+*/
 
 window {
     transparency:                   "real";
@@ -50,7 +50,7 @@ window {
     border-radius:                  0px;
 	height:							100%;
 	width:							9%;
-    location:                       west;
+    location:                       east;
     x-offset:                       0px;
     y-offset:                       0;
 }
@@ -114,16 +114,17 @@ element {
 }
 
 element-icon {
-    background-color:               transparent;
-    text-color:                     inherit;
-    horizontal-align:               0.5; //This may break when Rofi 1.7.1 releases, as may the previous two lines (also the same lines in element-text)
+    background-color: 				inherit;
+    text-color:       				inherit;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
     size:                           64px;
     border:                         0px;
 }
 
 element-text {
-    background-color:               transparent;
-    text-color:                     inherit;
+    background-color: 				inherit;
+    text-color:       				inherit;
     expand:                         true;
     horizontal-align:               0.5;
     vertical-align:                 0.5;
