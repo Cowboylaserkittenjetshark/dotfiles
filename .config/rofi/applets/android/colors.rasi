@@ -19,4 +19,4 @@
  *
  */
 
-@import "../styles/arc.rasi"
+@import "../styles/material-dark/catppuccin.rasi"
