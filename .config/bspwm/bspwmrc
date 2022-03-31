@@ -12,11 +12,12 @@ fi
 $HOME/.config/polybar/launch.sh --forest &
 pgrep -x sxhkd > /dev/null || sxhkd &
 picom --experimental-backend &
-feh --bg-fill /home/ashton/.config/split_catppuccin.png &
+feh --bg-fill /home/ashton/.config/cat-rainbow-arch.png &
 dunst -config /home/ashton/.config/dunst/dunstrc &
 easyeffects &
 # light-locker &
 clipcatd -r &
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
 #mpc add youtube-dl &
 bspc monitor $(bspc query -M --names) -d I II III IV V
 #bspc monitor LVDS1 -d I II III IV V
