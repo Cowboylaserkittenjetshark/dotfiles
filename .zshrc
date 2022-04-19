@@ -107,6 +107,9 @@ trap nnn_cd EXIT
 
 alias n='n -He'
 export NNN_PLUG='f:finder;o:fzopen;p:mocplay;d:diffs;t:nmount;v:imgview;a:mtpmount;u:imgur;x:xdgdefault'
+export NNN_BMS='h:~/;t:/tmp'
+BLK="04" CHR="03" DIR="04" EXE="02" REG="00" HARDLINK="00" SYMLINK="06" MISSING="01" ORPHAN="01" FIFO="0F" SOCK="0F" OTHER="01"
+export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
 export EDITOR=lvim
 ### Aditional completion settings ###
 zstyle ':completion:*' menu select
