@@ -12,8 +12,8 @@ fi
 $HOME/.config/polybar/launch.sh --forest &
 pgrep -x sxhkd > /dev/null || sxhkd &
 picom --experimental-backend &
-feh --bg-fill /home/ashton/.config/cat-rainbow-arch.png &
-dunst -config /home/ashton/.config/dunst/dunstrc &
+feh --bg-fill $HOME/.config/cat-rainbow-arch.png &
+dunst -config $HOME/ashton/.config/dunst/dunstrc &
 easyeffects &
 # light-locker &
 clipcatd -r &
