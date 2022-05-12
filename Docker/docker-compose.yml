@@ -31,11 +31,13 @@ services:
       - CERTPROVIDER= #optional
       - DNSPLUGIN=cloudflare #optional
       - PROPAGATION= #optional
-      - DUCKDNSTOKEN=5fe56f77-fdd9-4d09-bba0-f5c36a531cbf #optional
+        #- DUCKDNSTOKEN=5fe56f77-fdd9-4d09-bba0-f5c36a531cbf #optional
       - EMAIL=cowboylaserkittenjetshark@gmail.com #optional
       - ONLY_SUBDOMAINS=false #optional
       - EXTRA_DOMAINS= #optional
       - STAGING=false #optional
+    env_file:
+      - .env
     volumes:
       - ./swag/config:/config
         #ports:
