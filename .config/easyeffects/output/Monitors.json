@@ -1,0 +1,14 @@
+{
+    "output": {
+        "autogain": {
+            "input-gain": 0.0,
+            "output-gain": -15.1,
+            "reference": "Geometric Mean (MSI)",
+            "target": -23.0
+        },
+        "blocklist": [],
+        "plugins_order": [
+            "autogain"
+        ]
+    }
+}

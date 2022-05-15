@@ -9,11 +9,11 @@ else
 	mpc add youtube-dl
 fi
 
-$HOME/.config/polybar/launch.sh --forest &
+$XDG_CONFIG_HOME/polybar/launch.sh --forest &
 pgrep -x sxhkd > /dev/null || sxhkd &
 picom --experimental-backend &
-feh --bg-fill $HOME/.config/cat-rainbow-arch.png &
-dunst -config $HOME/ashton/.config/dunst/dunstrc &
+feh --no-fehbg --bg-fill $XDG_CONFIG_HOME/cat-rainbow-arch.png &
+dunst -config $XDG_CONFIG_HOME/dunst/dunstrc &
 easyeffects &
 # light-locker &
 clipcatd -r &

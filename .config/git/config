@@ -1,6 +1,7 @@
 [user]
 	name = Cowboylaserkittenjetshark
 	email = 82691052+Cowboylaserkittenjetshark@users.noreply.github.com
+	signingkey = 00A5338A68220B4E
 [core]
 
 [filter "lfs"]

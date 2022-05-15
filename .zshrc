@@ -1,5 +1,5 @@
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
+HISTFILE="$XDG_DATA_HOME"/zsh/history
 HISTSIZE=1000
 SAVEHIST=1000
 bindkey -v
@@ -8,7 +8,7 @@ bindkey -v
 zstyle :compinstall filename '/home/ashton/.zshrc'
 
 autoload -Uz compinit
-compinit
+compinit -d $HOME/.cache/zsh/zcompdump-$ZSH_VERSION # Moves .zcompdump out of $HOME
 # End of lines added by compinstall
 #
 # Prompt ZSH
@@ -18,6 +18,25 @@ prompt pure
 #
 ### Environment Variables ###
 export PATH=$PATH:$HOME/.local/bin/
+## XDG Env ##
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
+export XDG_CACHE_HOME=$HOME/.cache
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export NVM_DIR="$XDG_DATA_HOME"/nvm
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+export WINEPREFIX="$XDG_DATA_HOME"/wine
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+
+
+
 ### Aliases ###
 alias ls='ls --color=auto'
 alias a='alsamixer'
@@ -25,6 +44,13 @@ alias kfox='pkill -f firefox'
 alias wiki='nvim +VimwikiIndex'
 alias diary='nvim +VimwikiDiaryIndex'
 alias dotgit='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME' # Dotfiles
+## XDG Related Aliases ##
+alias dosbox=dosbox -conf "$XDG_CONFIG_HOME"/dosbox/dosbox.conf
+alias nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+alias startx='startx $XDG_CONFIG_HOME/X11/xinitrc'
+
+#
 ### Keybindings ###
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
@@ -108,7 +134,7 @@ trap nnn_cd EXIT
 alias n='n -He'
 export NNN_PLUG='f:finder;o:fzopen;p:mocplay;d:diffs;t:nmount;v:imgview;a:mtpmount;u:imgur;x:xdgdefault'
 export NNN_BMS='h:~/;t:/tmp'
-BLK="04" CHR="03" DIR="04" EXE="02" REG="00" HARDLINK="00" SYMLINK="06" MISSING="01" ORPHAN="01" FIFO="0F" SOCK="0F" OTHER="01"
+export BLK="04" CHR="03" DIR="04" EXE="02" REG="00" HARDLINK="00" SYMLINK="06" MISSING="01" ORPHAN="01" FIFO="0F" SOCK="0F" OTHER="01"
 export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
 export EDITOR=lvim
 ### Aditional completion settings ###
