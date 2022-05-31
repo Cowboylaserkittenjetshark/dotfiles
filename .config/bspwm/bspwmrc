@@ -1,15 +1,12 @@
 #! /bin/sh
 
-#Load ~ to mpd if not already
-if [[ $( mpc | wc -l ) -gt 1 ]]
-then
-	echo "" >> /dev/null
-else
-	mpc clear
-	mpc add youtube-dl
-fi
-
-$XDG_CONFIG_HOME/polybar/launch.sh --forest &
+launch_eww() {
+  eww kill
+  while pgrep -u $UID -x eww >/dev/null; do sleep 1; done
+  eww open bar
+}
+# $XDG_CONFIG_HOME/polybar/launch.sh --forest &
+launch_eww &
 pgrep -x sxhkd > /dev/null || sxhkd &
 picom --experimental-backend &
 feh --no-fehbg --bg-fill $XDG_CONFIG_HOME/cat-rainbow-arch.png &

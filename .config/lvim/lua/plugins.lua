@@ -1,1 +1,0 @@
-/home/ashton/.config/nvim/lua/plugins.lua
