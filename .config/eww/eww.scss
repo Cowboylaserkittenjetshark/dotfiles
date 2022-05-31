@@ -25,7 +25,7 @@ $blue-gray: #6D8895;
 
 scale trough {
   all: unset;
-  background-color: $background;
+  background-color: $red;
   border-radius: 50px;
   min-height: 10px;
   min-width: 100px;
@@ -33,13 +33,13 @@ scale trough {
 }
 scale trough highlight {
   all: unset;
-  background-color: $blue;
+  background-color: $cyan;
   border-radius: 10px;
 }
 
 window {
-  background: #1E1E2E;
-  color: #EBDBB2;
+  background: $background;
+  color: $foreground;
   font-size: 14px;
 
   & > * {
@@ -53,11 +53,11 @@ window {
     margin: 3px;
     padding-left: 1px;
     &.occupied {
-      color:  #89DCEB;
+      color:  $pink;
       font-size: 1.01rem;
     }
     &.empty {
-      color: #EBDBB2;
+      color: $foreground;
       font-size: 0.8rem;
     }
     /*&.inactive {
@@ -65,14 +65,13 @@ window {
     }*/
     &.active {
       font-size: 1.01rem;
-      color: #F5C2E7;
+      color: $purple;
     }
   }
 }
-
+// System resource widgets
 .memory {
   color: $cyan;
-  padding: 30px 30px;
 }
 
 .cpu {
@@ -81,4 +80,17 @@ window {
 
 .disk {
   color: $orange;
+}
+// Information
+.updates {
+  color: $white;
+}
+
+.time {
+  color: $white;
+}
+
+// Labels
+.volbar-label {
+  color: $blue;
 }

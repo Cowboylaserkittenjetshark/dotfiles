@@ -137,7 +137,7 @@ super + alt + c
 
 # Rofi powermenu
 super + ctrl +shift + alt + p
-  ~/.config/rofi/applets/android/powermenu.sh
+  sleep 1 && xset dpms force off &
 
 # Connect scrcpy
 super + ctrl + s

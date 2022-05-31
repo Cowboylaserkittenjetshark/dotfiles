@@ -12,12 +12,15 @@
                       :wm-ignore false
               )
               (centerbox (box :halign "start" 
-                           (workspaces :class "workspaces" 
-                                       :wsps wm_workspaces
-                             )
+                              :valign "center" 
+                              :space-evenly false
+                           (spacer :hsize 15 
+                                   :vsize 15)
+                           (workspaces :class "workspaces"
+                                       :wsps wm_workspaces)
                            (updates)
                            )
-                (box :hexpand true date)
+                (box :valign "center" :class "time" date)
                 (box :halign "end" 
                      :space-evenly false
                   (box :halign "start"
@@ -26,7 +29,7 @@
                     (cpu)
                     (disk)
                     )
-                  (volume :source "Master")(spacer :hsize 15 :vsize 15)
+                  (volume :source "Master" :valign "center")(spacer :hsize 15 :vsize 15)
                   )
                 )
               )
@@ -44,24 +47,21 @@
                        :thickness 4 
                        :clockwise true 
                        :height 20
-                       :width 20 ""
-                       )
+                       :width 20 "")
   )
 ;
 (defwidget cpu [] (circular-progress :class "cpu" 
                                      :value {EWW_CPU.avg} 
                                      :start-at 37.5 
                                      :thickness 4 
-                                     :clockwise true ""
-                    )
+                                     :clockwise true "")
   )
 ;
 (defwidget disk [] (circular-progress :class "disk"
                                       :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)} 
                                       :start-at 37.5 
                                       :thickness 4 
-                                      :clockwise true ""
-                     )
+                                      :clockwise true "")
   )
 ;
 (defwidget battery [](box)
@@ -69,7 +69,9 @@
 ;
 (defwidget updates []
   (box :class "updates" :visible {updates_poll != ""}
-    (label :text updates_poll)))
+    (label :text updates_poll)
+    )
+  )
 ;
 ;; ==== Controls ====
 (defwidget volume [source] (box
@@ -85,12 +87,11 @@
                                           :max 101 
                                           :onchange "amixer sset ${source} {}%" 
                                           :orientation "h" 
-                                          :flipped true "vol"
-                                     )
+                                          :flipped true "vol")
                                    )
-                                 (label :text ""
-                                        :halign "end"
-                                   )
+                                 (label :class "volbar-label"
+                                        :text ""
+                                        :halign "end")
                                  )
                                )
                              )
@@ -98,8 +99,7 @@
 ;; ==== Layout ====
 (defwidget spacer [hsize vsize]
   (box :width hsize 
-       :height vsize
-    )
+       :height vsize)
   )
 ;
 ;; ====== Variables ======
