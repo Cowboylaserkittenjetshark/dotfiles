@@ -1,0 +1,84 @@
+* {
+  all: unset;
+}
+
+$background: #1E1E2E;
+$foreground: #EBDBB2;
+$sep: #DDB6F2;
+$white: #D9E0EE;
+$black: #161320;
+$red: #F28FAD;
+$pink: #F5C2E7;
+$purple: #BA68C8;
+$blue: #96CDFB;
+$cyan: #89DCEB;
+$teal: #B5E8E0;
+$green: #ABE9B3;
+$lime: #C9CBFF;
+$yellow: #FAE3B0;
+$amber: #F8BD96;
+$orange: #F8BD96;
+$brown: #AC8476;
+$indigo: #6C77BB;
+$gray: #9E9E9E;
+$blue-gray: #6D8895;
+
+scale trough {
+  all: unset;
+  background-color: $background;
+  border-radius: 50px;
+  min-height: 10px;
+  min-width: 100px;
+  margin: 0 20px 0 20px;
+}
+scale trough highlight {
+  all: unset;
+  background-color: $blue;
+  border-radius: 10px;
+}
+
+window {
+  background: #1E1E2E;
+  color: #EBDBB2;
+  font-size: 14px;
+
+  & > * {
+    margin: 3px;
+  }
+}
+
+.workspaces {
+  button {
+    background: none;
+    margin: 3px;
+    padding-left: 1px;
+    &.occupied {
+      color:  #89DCEB;
+      font-size: 1.01rem;
+    }
+    &.empty {
+      color: #EBDBB2;
+      font-size: 0.8rem;
+    }
+    /*&.inactive {
+      color: #888974;
+    }*/
+    &.active {
+      font-size: 1.01rem;
+      color: #F5C2E7;
+    }
+  }
+}
+
+.memory {
+  color: $cyan;
+  padding: 30px 30px;
+}
+
+.cpu {
+  color:  $yellow;
+}
+
+.disk {
+  color: $orange;
+}

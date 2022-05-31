@@ -1,0 +1,139 @@
+;; === Windows ===
+(defwindow bar 
+  :monitor 0
+  :stacking "fg"
+  :reserve (struts :distance "34px" :side "top")
+  :anchor "center-top" 
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :height "34px"
+                      :wm-ignore false
+              )
+              (centerbox (box :halign "start" 
+                           (workspaces :class "workspaces" 
+                                       :wsps wm_workspaces
+                             )
+                           (updates)
+                           )
+                (box :hexpand true date)
+                (box :halign "end" 
+                     :space-evenly false
+                  (box :halign "start"
+                       :width 150
+                    (memory)
+                    (cpu)
+                    (disk)
+                    )
+                  (volume :source "Master")(spacer :hsize 15 :vsize 15)
+                  )
+                )
+              )
+;
+;; ====== Widgets ======
+;; ==== Workspaces ====
+(defwidget workspaces [wsps]
+  (literal :content wsps)
+  )
+;
+;; ==== System Statistics ====
+(defwidget memory [] (circular-progress :class "memory" 
+                       :value {EWW_RAM.used_mem_perc} 
+                       :start-at 37.5 
+                       :thickness 4 
+                       :clockwise true 
+                       :height 20
+                       :width 20 ""
+                       )
+  )
+;
+(defwidget cpu [] (circular-progress :class "cpu" 
+                                     :value {EWW_CPU.avg} 
+                                     :start-at 37.5 
+                                     :thickness 4 
+                                     :clockwise true ""
+                    )
+  )
+;
+(defwidget disk [] (circular-progress :class "disk"
+                                      :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)} 
+                                      :start-at 37.5 
+                                      :thickness 4 
+                                      :clockwise true ""
+                     )
+  )
+;
+(defwidget battery [](box)
+  )
+;
+(defwidget updates []
+  (box :class "updates" :visible {updates_poll != ""}
+    (label :text updates_poll)))
+;
+;; ==== Controls ====
+(defwidget volume [source] (box
+                             (eventbox :onhover "eww update volbar_reveal=true" 
+                                       :onhoverlost "eww update volbar_reveal=false"
+                               (box :space-evenly false 
+                                 (revealer :reveal volbar_reveal
+                                           :transition "slideleft"
+                                           :duration "500ms"
+                                   (scale :class "volbar" 
+                                          :value 5 
+                                          :min 1 
+                                          :max 101 
+                                          :onchange "amixer sset ${source} {}%" 
+                                          :orientation "h" 
+                                          :flipped true "vol"
+                                     )
+                                   )
+                                 (label :text ""
+                                        :halign "end"
+                                   )
+                                 )
+                               )
+                             )
+  )
+;; ==== Layout ====
+(defwidget spacer [hsize vsize]
+  (box :width hsize 
+       :height vsize
+    )
+  )
+;
+;; ====== Variables ======
+(deflisten wm_workspaces :initial "(box)" "./bar/workspaces.sh")
+;
+(defpoll date :interval "1s"
+              :initial "12:00"
+  `date +%r`)
+;
+(defpoll updates_poll :initial ""
+                                  :interval "1m"
+  "./bar/updates-pacman-aurhelper.sh &")
+;
+(defvar volbar_reveal false)
+
+
+
+
+
+
+
+
+
+;; ====== Test ======
+(defwindow test
+  :monitor 0
+  :stacking "bg"
+  :anchor "top left"
+  :geometry (geometry :x "760px"
+                      :y "340px"
+                      :width "400px"
+                      :height "400px"
+              )
+  (memtest)
+)
+(defwidget memtest []
+  (circular-progress :value 50 :start-at 90 :thickness 4 :clockwise true ""))
