@@ -106,7 +106,7 @@
                                           :flipped true)
                                    )
                                  (label :class "volbar-label"
-                                        :text ""
+                                        :text ""
                                         :halign "end")
                                  )
                                )
