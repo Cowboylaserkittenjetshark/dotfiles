@@ -85,9 +85,11 @@
                                           :value 5 
                                           :min 1 
                                           :max 101 
+                                          :marks "1, 25, 50, 75, 101"
+                                          :draw-value true
                                           :onchange "amixer sset ${source} {}%" 
                                           :orientation "h" 
-                                          :flipped true "vol")
+                                          :flipped true)
                                    )
                                  (label :class "volbar-label"
                                         :text ""
@@ -114,26 +116,3 @@
   "./bar/updates-pacman-aurhelper.sh &")
 ;
 (defvar volbar_reveal false)
-
-
-
-
-
-
-
-
-
-;; ====== Test ======
-(defwindow test
-  :monitor 0
-  :stacking "bg"
-  :anchor "top left"
-  :geometry (geometry :x "760px"
-                      :y "340px"
-                      :width "400px"
-                      :height "400px"
-              )
-  (memtest)
-)
-(defwidget memtest []
-  (circular-progress :value 50 :start-at 90 :thickness 4 :clockwise true ""))
