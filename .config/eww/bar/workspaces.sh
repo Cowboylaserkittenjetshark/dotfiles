@@ -5,10 +5,10 @@ gen_workspace_literal() {
     name="${name#*_}"
     if wmctrl -l | grep --regexp '.*\s\+'"$id"'\s\+.*' >/dev/null; then
       button_class="occupied"
-      button_name=""
+      button_name=""
     else
       button_class="empty"
-      button_name=""
+      button_name=""
     fi
     if [ "$active" == '*' ]; then
       active_class="active"
