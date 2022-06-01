@@ -14,22 +14,23 @@
               (centerbox (box :halign "start" 
                               :valign "center" 
                               :space-evenly false
-                           (spacer :hsize 15 
-                                   :vsize 15)
+                           (box :width 15)
                            (workspaces :class "workspaces"
                                        :wsps wm_workspaces)
+                           (box :width 15)
                            (updates)
                            )
                 (box :valign "center" :class "time" date)
                 (box :halign "end" 
                      :space-evenly false
-                  (box :halign "start"
-                       :width 150
-                    (memory)
-                    (cpu)
-                    (disk)
-                    )
-                  (volume :source "Master" :valign "center")(spacer :hsize 15 :vsize 15)
+                  (sys-stats :width 150)
+                  ; (box :halign "start"
+                  ;      :width 150
+                  ;   (memory)
+                  ;   (cpu)
+                  ;   (disk)
+                  ;   )
+                  (volume :source "Master")(spacer :hsize 15 :vsize 15)
                   )
                 )
               )
@@ -41,6 +42,15 @@
   )
 ;
 ;; ==== System Statistics ====
+(defwidget sys-stats [width] 
+  (box :width width
+    (memory)
+    (cpu)
+    (disk)
+    (battery)
+    )
+  )
+;
 (defwidget memory [] (circular-progress :class "memory" 
                        :value {EWW_RAM.used_mem_perc} 
                        :start-at 37.5 
@@ -64,7 +74,12 @@
                                       :clockwise true "")
   )
 ;
-(defwidget battery [](box)
+(defwidget battery [](circular-progress :class "battery" 
+                                        :visible is_laptop
+                                        :value {EWW_BATTERY} 
+                                        :start-at 37.5 
+                                        :thickness 4 
+                                        :clockwise true "")
   )
 ;
 (defwidget updates []
@@ -86,7 +101,6 @@
                                           :min 1 
                                           :max 101 
                                           :marks "1, 25, 50, 75, 101"
-                                          :draw-value true
                                           :onchange "amixer sset ${source} {}%" 
                                           :orientation "h" 
                                           :flipped true)
@@ -116,3 +130,4 @@
   "./bar/updates-pacman-aurhelper.sh &")
 ;
 (defvar volbar_reveal false)
+(defvar is_laptop false)

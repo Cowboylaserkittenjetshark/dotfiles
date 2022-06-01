@@ -40,6 +40,7 @@ scale trough highlight {
 window {
   background: $background;
   color: $foreground;
+  font-family: "Sarasa Mono CL Nerd Font";
   font-size: 14px;
 
   & > * {
@@ -81,12 +82,17 @@ window {
 .disk {
   color: $orange;
 }
+.battery {
+  color: $green;
+  font-family: "Material Icons";
+}
 // Information
 .updates {
   color: $white;
 }
 
 .time {
+  font-family: "Sarasa Mono CL Nerd Font";
   color: $white;
 }
 
