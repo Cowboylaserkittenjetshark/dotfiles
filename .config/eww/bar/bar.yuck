@@ -76,7 +76,7 @@
 ;
 (defwidget battery [](circular-progress :class "battery" 
                                         :visible is_laptop
-                                        :value {EWW_BATTERY} 
+                                        :value {EWW_BATTERY.total_avg} 
                                         :start-at 37.5 
                                         :thickness 4 
                                         :clockwise true "")
