@@ -79,7 +79,7 @@
                                         :value {EWW_BATTERY.total_avg} 
                                         :start-at 37.5 
                                         :thickness 4 
-                                        :clockwise true "")
+                                        :clockwise true "${EWW_BATTERY["BAT0"].status == "Charging" ? "" : ""}")
   )
 ;
 (defwidget updates []
