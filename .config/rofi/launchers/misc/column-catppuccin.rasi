@@ -32,13 +32,13 @@ configuration {
 
 /* -- Dark -- */
  * {
-    background:                     #161320;
+    background:                     #1e2030;
     background-alt:              	#00000000;
     background-bar:                 #575268;
-    foreground:                     #D9E0EE;
-    accent:			            	#DDB6F2;
-    border:		               		#DDB6F2;
-    selected:               		#1A1826;
+    foreground:                     #cad3f5;
+    accent:			            	#b7bdf8;
+    border:		               		#b7bdf8;
+    selected:               		#24273a;
 }
 
 window {
