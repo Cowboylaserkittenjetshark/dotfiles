@@ -2,6 +2,7 @@
 (defwindow bar 
   :monitor 0
   :stacking "fg"
+  :exclusive true
   :reserve (struts :distance "34px" :side "top")
   :anchor "center-top" 
   :windowtype "dock"
@@ -119,7 +120,8 @@
   )
 ;
 ;; ====== Variables ======
-(deflisten wm_workspaces :initial "(box)" "./bar/workspaces.sh")
+(deflisten wm_workspaces :initial "(box)" "./bar/workspaces_EWMH.sh")
+;;(defvar wm_workspaces "(box)")
 ;
 (defpoll date :interval "1s"
               :initial "12:00"
