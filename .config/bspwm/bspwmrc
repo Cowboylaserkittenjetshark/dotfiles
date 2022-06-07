@@ -1,15 +1,8 @@
 #! /bin/sh
 
-launch_eww() {
-  eww kill
-  while pgrep -u $UID -x eww >/dev/null; do sleep 1; done
-  eww open bar
-  if [ -d /sys/class/power_supply/BAT*/ ]; then
-    eww update is_laptop=true
-  fi
-}
 # $XDG_CONFIG_HOME/polybar/launch.sh --forest &
-launch_eww &
+$XDG_CONFIG_HOME/eww/launch_bar.sh &
+$XDG_CONFIG_HOME/eww/launch_bar.sh &
 pgrep -x sxhkd > /dev/null || sxhkd &
 picom --experimental-backend &
 feh --no-fehbg --bg-fill $XDG_CONFIG_HOME/cat-rainbow-arch.png &
