@@ -93,12 +93,13 @@
 (defwidget volume [source] (box
                              (eventbox :onhover "eww update volbar_reveal=true" 
                                        :onhoverlost "eww update volbar_reveal=false"
+                                       :onscroll "./bar/vol_scroll.sh ${source} {}"
                                (box :space-evenly false 
                                  (revealer :reveal volbar_reveal
                                            :transition "slideleft"
                                            :duration "500ms"
                                    (scale :class "volbar" 
-                                          :value 5 
+                                          :value 40 ;;curr_vol
                                           :min 1 
                                           :max 101 
                                           :marks "1, 25, 50, 75, 101"
@@ -132,4 +133,5 @@
   "./bar/updates-pacman-aurhelper.sh &")
 ;
 (defvar volbar_reveal false)
+;; (deflisten curr_vol :initial 40 "./bar/curr_vol.sh")
 (defvar is_laptop false)

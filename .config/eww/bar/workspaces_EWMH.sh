@@ -20,6 +20,6 @@ gen_workspace_literal() {
   done
 }
 xprop -spy -root | while read -r; do
-  echo '(box :orientation "h" :class "workspaces" :space-evenly true :halign "center" :valign "center" :hexpand true '"$(gen_workspace_literal)"')'
+echo '(eventbox :onscroll "./bar/wsps_scroll.sh {}" (box :orientation "h" :class "workspaces" :space-evenly true :halign "center" :valign "center" :hexpand true '"$(gen_workspace_literal)"'))'
   # gen_workspace_literal
 done
