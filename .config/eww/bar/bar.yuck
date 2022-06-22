@@ -31,7 +31,7 @@
                   ;   (cpu)
                   ;   (disk)
                   ;   )
-                  (volume :source "Master")(spacer :hsize 15 :vsize 15)
+                  (volume :sink "@DEFAULT_SINK@")(spacer :hsize 15 :vsize 15)
                   )
                 )
               )
@@ -90,26 +90,25 @@
   )
 ;
 ;; ==== Controls ====
-(defwidget volume [source] (box
+(defwidget volume [sink] (box
                              (eventbox :onhover "eww update volbar_reveal=true" 
                                        :onhoverlost "eww update volbar_reveal=false"
-                                       :onscroll "./bar/vol_scroll.sh ${source} {}"
+                                       :onscroll "./bar/vol_scroll.sh ${sink} {}"
                                (box :space-evenly false 
-                                 (revealer :reveal volbar_reveal
-                                           :transition "slideleft"
-                                           :duration "500ms"
-                                   (scale :class "volbar" 
-                                          :value 40 ;;curr_vol
-                                          :min 1 
-                                          :max 101 
-                                          :marks "1, 25, 50, 75, 101"
-                                          :onchange "amixer sset ${source} {}%" 
-                                          :orientation "h" 
-                                          :flipped true)
-                                   )
+                                 ; (revealer :reveal volbar_reveal
+                                 ;           :transition "slideleft"
+                                 ;           :duration "500ms"
+                                   ; (scale :class "volbar" 
+                                   ;        :value curr_vol
+                                   ;        :min 1 
+                                   ;        :max 101 
+                                   ;        :onchange "pactl set-sink-volume ${sink} {}%"
+                                   ;        :orientation "h" 
+                                   ;        :flipped true)
+                                   ; )
                                  (label :class "volbar-label"
-                                        :text ""
-                                        :halign "end")
+                                        :text " "
+                                        :halign "end") "${curr_vol}"
                                  )
                                )
                              )
@@ -129,9 +128,11 @@
   `date +%r`)
 ;
 (defpoll updates_poll :initial ""
-                                  :interval "1m"
+                      :interval "1m"
   "./bar/updates-pacman-aurhelper.sh &")
 ;
 (defvar volbar_reveal false)
-;; (deflisten curr_vol :initial 40 "./bar/curr_vol.sh")
+(defpoll curr_vol :initial 40 
+                  :interval "10s"
+  "pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}'")
 (defvar is_laptop false)

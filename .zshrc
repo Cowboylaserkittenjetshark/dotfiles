@@ -115,7 +115,7 @@ n ()
     # stty lwrap undef
     # stty lnext undef
 
-    nnn "$@"
+    nnn "$@" -a
 
     if [ -f "$NNN_TMPFILE" ]; then
             . "$NNN_TMPFILE"
@@ -123,11 +123,11 @@ n ()
     fi
 }
 
-nnn_cd()                                                                                                   
+nnn_cd()                                                                                                  
 {
     if ! [ -z "$NNN_PIPE" ]; then
         printf "%s\0" "0c${PWD}" > "${NNN_PIPE}" !&
-    fi  
+    fi 
 }
 
 trap nnn_cd EXIT
