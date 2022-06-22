@@ -1,5 +1,5 @@
 # Lines configured by zsh-newuser-install
-HISTFILE="$XDG_DATA_HOME"/zsh/history
+HISTFILE="$HOME"/.local/share/zsh/history
 HISTSIZE=1000
 SAVEHIST=1000
 bindkey -v
