@@ -61,7 +61,7 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.show_icons.git = 0
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -146,7 +146,6 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- Additional Plugins
 lvim.plugins = {
   {"catppuccin/nvim"},
-  {"elkowar/yuck.vim"}
 --     {"folke/tokyonight.nvim"},
 --     {
 --       "folke/trouble.nvim",
@@ -167,3 +166,76 @@ lvim.plugins = {
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
+local catppuccin = require("catppuccin")
+
+-- configure it
+catppuccin.setup({transparent_background = false,
+term_colors = false,
+styles = {
+      comments = "italic",
+      conditionals = "italic",
+      loops = "NONE",
+      functions = "NONE",
+      keywords = "NONE",
+      strings = "NONE",
+      variables = "NONE",
+      numbers = "NONE",
+      booleans = "NONE",
+      properties = "NONE",
+      types = "NONE",
+      operators = "NONE",
+  },
+  integrations = {
+      treesitter = true,
+      native_lsp = {
+          enabled = true,
+          virtual_text = {
+              errors = "italic",
+              hints = "italic",
+              warnings = "italic",
+              information = "italic",
+            },
+          underlines = {
+              errors = "underline",
+              hints = "underline",
+              warnings = "underline",
+              information = "underline",
+            },
+        },
+      lsp_trouble = false,
+      cmp = true,
+      lsp_saga = false,
+      gitgutter = false,
+      gitsigns = true,
+      telescope = true,
+      nvimtree = {
+          enabled = true,
+          show_root = false,
+          transparent_panel = false,
+        },
+      neotree = {
+          enabled = false,
+          show_root = false,
+          transparent_panel = false,
+        },
+      which_key = false,
+      indent_blankline = {
+          enabled = true,
+          colored_indent_levels = false,
+        },
+      dashboard = true,
+      neogit = false,
+      vim_sneak = false,
+      fern = false,
+      barbar = false,
+      bufferline = true,
+      markdown = true,
+      lightspeed = false,
+      ts_rainbow = false,
+      hop = false,
+      notify = true,
+      telekasten = true,
+      symbols_outline = true,
+  }
+})
+vim.g.catppuccin_flavour = "macchiato"
