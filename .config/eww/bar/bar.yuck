@@ -93,22 +93,22 @@
 (defwidget volume [sink] (box
                              (eventbox :onhover "eww update volbar_reveal=true" 
                                        :onhoverlost "eww update volbar_reveal=false"
-                                       :onscroll "./bar/vol_scroll.sh ${sink} {}"
+                                       ; :onscroll "./bar/vol_scroll.sh ${sink} {}"
                                (box :space-evenly false 
-                                 ; (revealer :reveal volbar_reveal
-                                 ;           :transition "slideleft"
-                                 ;           :duration "500ms"
-                                   ; (scale :class "volbar" 
-                                   ;        :value curr_vol
-                                   ;        :min 1 
-                                   ;        :max 101 
-                                   ;        :onchange "pactl set-sink-volume ${sink} {}%"
-                                   ;        :orientation "h" 
-                                   ;        :flipped true)
-                                   ; )
+                                 (revealer :reveal volbar_reveal
+                                           :transition "slideleft"
+                                           :duration "500ms"
+                                   (scale :class "volbar"
+                                          :value curr_vol
+                                          :min 0
+                                          :max 101
+                                          :onchange "pactl set-sink-volume ${sink} {}%"
+                                          :orientation "h"
+                                          :flipped true)
+                                   )
                                  (label :class "volbar-label"
-                                        :text " "
-                                        :halign "end") "${curr_vol}"
+                                        :text ""
+                                        :halign "end")
                                  )
                                )
                              )
