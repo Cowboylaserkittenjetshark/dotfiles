@@ -1,12 +1,13 @@
 #! /bin/sh
 
 # $XDG_CONFIG_HOME/polybar/launch.sh --forest &
+easy
 $XDG_CONFIG_HOME/eww/launch_bar.sh &
 pgrep -x sxhkd > /dev/null || sxhkd &
 picom --experimental-backend &
 feh --no-fehbg --bg-fill $XDG_CONFIG_HOME/cat-rainbow-arch.png &
 dunst -config $XDG_CONFIG_HOME/dunst/dunstrc &
-easyeffects &
+easyeffects --gapplication-service &
 # light-locker &
 clipcatd -r &
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
