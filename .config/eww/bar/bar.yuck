@@ -1,16 +1,13 @@
 ;; === Windows ===
 (defwindow bar 
   :monitor 0
-  :stacking "fg"
   :exclusive true
-  :reserve (struts :distance "34px" :side "top")
-  :anchor "center-top" 
-  :windowtype "dock"
-  :geometry (geometry :x "0%"
-                      :y "0%"
-                      :width "100%"
+  :geometry (geometry :x "10px"
+                      :y "5px"
+                      :width "1910px"
                       :height "34px"
-                      :wm-ignore false
+                      :anchor "top center"
+;;                      :wm-ignore false
               )
               (centerbox (box :halign "start" 
                               :valign "center" 
@@ -77,7 +74,7 @@
 ;
 (defwidget battery [](circular-progress :class "battery" 
                                         :visible is_laptop
-                                        :value {EWW_BATTERY.total_avg} 
+                                        :value {EWW_BATTERY == "" ? "" : EWW_BATTERY.total_avg}
                                         :start-at 37.5 
                                         :thickness 4 
                                         :clockwise true "${EWW_BATTERY["BAT0"].status == "Charging" ? "" : ""}")
@@ -120,8 +117,8 @@
   )
 ;
 ;; ====== Variables ======
-(deflisten wm_workspaces :initial "(box)" "./bar/workspaces_EWMH.sh")
-;;(defvar wm_workspaces "(box)")
+(deflisten wm_workspaces :initial "(box)" "./bar/workspaces.sh")
+;;(defvar wm_workspaces "./bar/workspaces.sh")
 ;
 (defpoll date :interval "1s"
               :initial "12:00"
@@ -134,5 +131,5 @@
 (defvar volbar_reveal false)
 (defpoll curr_vol :initial 40 
                   :interval "10s"
-  "pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}'")
+  "pactl get-sink-volume @DEFAULT_SINK@ | awk '{print substr($5, 1, length($5)-1)}'")
 (defvar is_laptop false)
