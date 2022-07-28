@@ -40,6 +40,7 @@ export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 
 ### Aliases ###
 alias ls='ls --color=auto'
+alias ip='ip -c'
 alias a='alsamixer'
 alias kfox='pkill -f firefox'
 alias wiki='nvim +VimwikiIndex'
