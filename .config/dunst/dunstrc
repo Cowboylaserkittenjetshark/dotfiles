@@ -58,7 +58,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.).
-    transparency = 0
+    transparency = 1
 
     # The height of the entire notification.  If the height is smaller
     # than the font height and padding combined, it will be raised
@@ -242,7 +242,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 0
+    corner_radius = 10
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
@@ -468,18 +468,19 @@
 #    script = dunstemail.sh
 
 # vim: ft=cfg
-frame_color = "#96CDFB"
+[global]
+frame_color = "#8AADF4"
 separator_color= frame
 
 [urgency_low]
-background = "#1E1E2E"
-foreground = "#D9E0EE"
+background = "#24273A"
+foreground = "#CAD3F5"
 
 [urgency_normal]
-background = "#1E1E2E"
-foreground = "#D9E0EE"
+background = "#24273A"
+foreground = "#CAD3F5"
 
 [urgency_critical]
-background = "#1E1E2E"
-foreground = "#D9E0EE"
-frame_color = "#F8BD96"
+background = "#24273A"
+foreground = "#CAD3F5"
+frame_color = "#F5A97F"
