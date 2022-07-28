@@ -1,7 +1,6 @@
 #! /bin/sh
 
 # $XDG_CONFIG_HOME/polybar/launch.sh --forest &
-easy
 $XDG_CONFIG_HOME/eww/launch_bar.sh &
 pgrep -x sxhkd > /dev/null || sxhkd &
 picom --experimental-backend &
