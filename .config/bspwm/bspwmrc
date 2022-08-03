@@ -9,7 +9,7 @@ dunst -config $XDG_CONFIG_HOME/dunst/dunstrc &
 easyeffects --gapplication-service &
 # light-locker &
 clipcatd -r &
-dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
+# dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
 #mpc add youtube-dl &
 bspc monitor $(bspc query -M --names) -d I II III IV V
 #bspc monitor LVDS1 -d I II III IV V
