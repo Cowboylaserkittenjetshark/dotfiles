@@ -48,7 +48,7 @@ networks:
   pihole_network:
     driver: macvlan
     driver_opts:
-      parent: enp34s0
+      parent: wlan0
     ipam:
       config:
         - subnet: "192.168.86.0/24"

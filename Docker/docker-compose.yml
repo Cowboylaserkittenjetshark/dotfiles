@@ -1,61 +1,69 @@
 version: "2.1"
 services:
-  sslh:
-    image: sslh:v1.22c-55-g4e61455
-    container_name: sslh
-    hostname: sslh
-    ports:
-      - 443:443/tcp
-    volumes:
-      - ./sslh/sslh.cfg:/sslh.cfg
-    command: --config /sslh.cfg --listen=0.0.0.0:443 --http=swag:443 --openvpn=openvpn:1194 --ssh=192.168.86.198:7461
-    depends_on:
-      - swag
-      - openvpn
-      - homeassistant
-      - mosquitto
+  cloudflared:
+    container_name: cloudflared-tunnel
+    image: cloudflare/cloudflared
     restart: unless-stopped
-  swag:
-    image: lscr.io/linuxserver/swag
-    container_name: swag
-    hostname: swag
-    cap_add:
-      - NET_ADMIN
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/New_York
-      - URL=cblkjs.duckdns.org
-      - VALIDATION=duckdns
-      - SUBDOMAINS=wildcard #optional
-      - CERTPROVIDER= #optional
-      - DNSPLUGIN=cloudflare #optional
-      - PROPAGATION= #optional
-        #- DUCKDNSTOKEN=5fe56f77-fdd9-4d09-bba0-f5c36a531cbf #optional
-      - EMAIL=cowboylaserkittenjetshark@gmail.com #optional
-      - ONLY_SUBDOMAINS=false #optional
-      - EXTRA_DOMAINS= #optional
-      - STAGING=false #optional
+    command: tunnel run
     env_file:
       - .env
-    volumes:
-      - ./swag/config:/config
-        #ports:
-      #- 8443:443
-      #- 80:80 #optional
-    restart: unless-stopped
 
-  openvpn:
-    cap_add:
-     - NET_ADMIN
-    image: kylemanna/openvpn
-    container_name: openvpn
-    hostname: openvpn
-    ports:
-      - "1194:1194/tcp"
-    restart: unless-stopped
-    volumes:
-     - ./openvpn-data/conf:/etc/openvpn
+  # sslh:
+  #   image: sslh:v1.22c-55-g4e61455
+  #   container_name: sslh
+  #   hostname: sslh
+  #   ports:
+  #     - 443:443/tcp
+  #   volumes:
+  #     - ./sslh/sslh.cfg:/sslh.cfg
+  #   command: --config /sslh.cfg --listen=0.0.0.0:443 --http=swag:443 --openvpn=openvpn:1194 --ssh=192.168.86.198:7461
+  #   depends_on:
+  #     - swag
+  #     - openvpn
+  #     - homeassistant
+  #     - eclipse-mosquitto
+  #   restart: unless-stopped
+  # swag:
+  #   image: lscr.io/linuxserver/swag
+  #   container_name: swag
+  #   hostname: swag
+  #   cap_add:
+  #     - NET_ADMIN
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=America/New_York
+  #     - URL=cblkjs.tk
+  #     - VALIDATION=duckdns
+  #     - SUBDOMAINS=wildcard #optional
+  #     - CERTPROVIDER= #optional
+  #     - DNSPLUGIN=cloudflare #optional
+  #     - PROPAGATION= #optional
+  #       #- DUCKDNSTOKEN=5fe56f77-fdd9-4d09-bba0-f5c36a531cbf #optional
+  #     - EMAIL=cowboylaserkittenjetshark@gmail.com #optional
+  #     - ONLY_SUBDOMAINS=false #optional
+  #     - EXTRA_DOMAINS= #optional
+  #     - STAGING=false #optional
+  #   env_file:
+  #     - .env
+  #   volumes:
+  #     - ./swag/config:/config
+  #       #ports:
+  #     #- 8443:443
+  #     #- 80:80 #optional
+  #   restart: unless-stopped
+
+  # openvpn:
+  #   cap_add:
+  #    - NET_ADMIN
+  #   image: kylemanna/openvpn
+  #   container_name: openvpn
+  #   hostname: openvpn
+  #   ports:
+  #     - "1194:1194/tcp"
+  #   restart: unless-stopped
+  #   volumes:
+  #    - ./openvpn-data/conf:/etc/openvpn
 
   homeassistant:
     ports:
