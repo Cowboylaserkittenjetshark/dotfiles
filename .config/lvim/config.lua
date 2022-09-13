@@ -19,6 +19,8 @@ lvim.colorscheme = "catppuccin"
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+-- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
+-- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
@@ -51,7 +53,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 --   d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
 --   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
 --   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
---   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
+--   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
 -- }
 
 -- TODO: User Config for predefined plugins
@@ -99,7 +101,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- }
 
 -- ---@usage disable automatic installation of servers
--- lvim.lsp.automatic_servers_installation = false
+-- lvim.lsp.installer.setup.automatic_installation = false
 
 -- ---configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
 -- ---see the full default list `:lua print(vim.inspect(lvim.lsp.automatic_configuration.skipped_servers))`
@@ -109,7 +111,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. !!Requires `:LvimCacheReset` to take effect!!
 -- ---`:LvimInfo` lists which server(s) are skipped for the current filetype
--- vim.tbl_map(function(server)
+-- lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(server)
 --   return server ~= "emmet_ls"
 -- end, lvim.lsp.automatic_configuration.skipped_servers)
 
@@ -181,76 +183,76 @@ lvim.plugins = {
 --   end,
 -- })
 
-local catppuccin = require("catppuccin")
+-- local catppuccin = require("catppuccin")
 
--- configure it
-catppuccin.setup({transparent_background = false,
-term_colors = false,
-styles = {
-      comments = "italic",
-      conditionals = "italic",
-      loops = "NONE",
-      functions = "NONE",
-      keywords = "NONE",
-      strings = "NONE",
-      variables = "NONE",
-      numbers = "NONE",
-      booleans = "NONE",
-      properties = "NONE",
-      types = "NONE",
-      operators = "NONE",
-  },
-  integrations = {
-      treesitter = true,
-      native_lsp = {
-          enabled = true,
-          virtual_text = {
-              errors = "italic",
-              hints = "italic",
-              warnings = "italic",
-              information = "italic",
-            },
-          underlines = {
-              errors = "underline",
-              hints = "underline",
-              warnings = "underline",
-              information = "underline",
-            },
-        },
-      lsp_trouble = false,
-      cmp = true,
-      lsp_saga = false,
-      gitgutter = false,
-      gitsigns = true,
-      telescope = true,
-      nvimtree = {
-          enabled = true,
-          show_root = false,
-          transparent_panel = false,
-        },
-      neotree = {
-          enabled = false,
-          show_root = false,
-          transparent_panel = false,
-        },
-      which_key = false,
-      indent_blankline = {
-          enabled = true,
-          colored_indent_levels = false,
-        },
-      dashboard = true,
-      neogit = false,
-      vim_sneak = false,
-      fern = false,
-      barbar = false,
-      bufferline = true,
-      markdown = true,
-      lightspeed = false,
-      ts_rainbow = false,
-      hop = false,
-      notify = true,
-      telekasten = true,
-      symbols_outline = true,
-  }
-})
+-- -- configure it
+-- catppuccin.setup({transparent_background = false,
+-- term_colors = false,
+-- styles = {
+--       comments = "italic",
+--       conditionals = "italic",
+--       loops = "NONE",
+--       functions = "NONE",
+--       keywords = "NONE",
+--       strings = "NONE",
+--       variables = "NONE",
+--       numbers = "NONE",
+--       booleans = "NONE",
+--       properties = "NONE",
+--       types = "NONE",
+--       operators = "NONE",
+--   },
+--   integrations = {
+--       treesitter = true,
+--       native_lsp = {
+--           enabled = true,
+--           virtual_text = {
+--               errors = "italic",
+--               hints = "italic",
+--               warnings = "italic",
+--               information = "italic",
+--             },
+--           underlines = {
+--               errors = "underline",
+--               hints = "underline",
+--               warnings = "underline",
+--               information = "underline",
+--             },
+--         },
+--       lsp_trouble = false,
+--       cmp = true,
+--       lsp_saga = false,
+--       gitgutter = false,
+--       gitsigns = true,
+--       telescope = true,
+--       nvimtree = {
+--           enabled = true,
+--           show_root = false,
+--           transparent_panel = false,
+--         },
+--       neotree = {
+--           enabled = false,
+--           show_root = false,
+--           transparent_panel = false,
+--         },
+--       which_key = false,
+--       indent_blankline = {
+--           enabled = true,
+--           colored_indent_levels = false,
+--         },
+--       dashboard = true,
+--       neogit = false,
+--       vim_sneak = false,
+--       fern = false,
+--       barbar = false,
+--       bufferline = true,
+--       markdown = true,
+--       lightspeed = false,
+--       ts_rainbow = false,
+--       hop = false,
+--       notify = true,
+--       telekasten = true,
+--       symbols_outline = true,
+--   }
+-- })
 vim.g.catppuccin_flavour = "mocha"

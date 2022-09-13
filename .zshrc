@@ -76,6 +76,7 @@ key[Shift-Tab]="${terminfo[kcbt]}"
 [[ -n "${key[End]}"       ]] && bindkey -- "${key[End]}"        end-of-line
 [[ -n "${key[Insert]}"    ]] && bindkey -- "${key[Insert]}"     overwrite-mode
 [[ -n "${key[Backspace]}" ]] && bindkey -- "${key[Backspace]}"  backward-delete-char
+[[ -n "${key[Backspace]}" ]] && bindkey -- "^H"  backward-kill-word
 [[ -n "${key[Delete]}"    ]] && bindkey -- "${key[Delete]}"     delete-char
 [[ -n "${key[Up]}"        ]] && bindkey -- "${key[Up]}"         up-line-or-history
 [[ -n "${key[Down]}"      ]] && bindkey -- "${key[Down]}"       down-line-or-history
@@ -150,3 +151,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+# Init Node Version Manager
+source /usr/share/nvm/nvm.sh
+source /usr/share/nvm/bash_completion
+source /usr/share/nvm/install-nvm-exec

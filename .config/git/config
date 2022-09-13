@@ -11,3 +11,5 @@
 	required = true
 [credential]
 	helper = store
+[status]
+	showUntrackedFiles = no
