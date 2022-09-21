@@ -90,7 +90,6 @@
 (defwidget volume [sink] (box
                              (eventbox :onhover "eww update volbar_reveal=true" 
                                        :onhoverlost "eww update volbar_reveal=false"
-                                       ; :onscroll "./bar/vol_scroll.sh ${sink} {}"
                                (box :space-evenly false 
                                  (revealer :reveal volbar_reveal
                                            :transition "slideleft"
