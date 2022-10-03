@@ -7,4 +7,4 @@ eww kill
   fi
 pkill -KILL -f workspaces.sh
 while pgrep -u $UID -x workspaces.sh >/dev/null; do sleep 1; done
-"$XDG_CONFIG_HOME"/eww/bar/workspaces.sh
+"$XDG_CONFIG_HOME"/eww/bar/workspaces.sh workspaces_group_1

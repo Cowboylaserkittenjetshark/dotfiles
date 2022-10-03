@@ -22,6 +22,6 @@ while read -r line; do
   if grep ^workspace <<< "$line" >/dev/null; then
     CURRENT_WORKSPACE="$(awk -F '>' '{print $3}' <<< "$line")"
   fi
-  eww update wm_workspaces='(box :orientation "h" :class "workspaces" :space-evenly true :halign "center" :valign "center" :hexpand true '"$(gen_workspace_literal "$line")"')'
+  eww update $1='(box :orientation "h" :class "workspaces" :space-evenly true :halign "center" :valign "center" :hexpand true '"$(gen_workspace_literal "$line")"')'
   # echo '(box :orientation "h" :class "workspaces" :space-evenly true :halign "center" :valign "center" :hexpand true '"$(gen_workspace_literal "$line")"')'
 done < <(socat - UNIX-CONNECT:/tmp/hypr/"$HYPRLAND_INSTANCE_SIGNATURE"/.socket2.sock)
