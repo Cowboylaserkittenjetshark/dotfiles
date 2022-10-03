@@ -69,7 +69,6 @@
   (box
     :class "left"
     :halign "start"
-    :valign "center"
     :space-evenly false
     :spacing internal_spacing
     (workspaces
@@ -80,14 +79,12 @@
   (box
     :class "center"
     :halign "center"
-    :valign "center"
     (date)))
 
 (defwidget right_bar_layout []
   (box
     :class "right"
     :halign "end"
-    :valign "center"
     :space-evenly false
     :spacing internal_spacing
     (system_resources)
@@ -96,7 +93,9 @@
 ;; - Workspaces -
 ;; --------------
 (defwidget workspaces [workspace_literal]
-  (literal :content workspace_literal))
+  (literal
+    :valign "center"
+    :content workspace_literal))
 ;;
 ;; --------------------
 ;; - System Resources -

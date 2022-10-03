@@ -26,7 +26,7 @@ $blue-gray: #6D8895;
 $mantle: #181825;
 $text: #CDD6F4;
 // Padding
-$background-bar-padding: 3px;
+$background-bar-padding: 5px;
 $subbar-padding-sides: 10px;
 $subbar-padding-tob-bottom:5px;
 $widget-padding: 5px;
@@ -62,7 +62,7 @@ window {
 
 // System resource widgets
 .memory {
-  color: $blue;
+  color: $purple;
   .memory_icon {
     padding: $icon-padding;
   }
@@ -105,8 +105,8 @@ window {
 
 // Rewrite start
 .bar {
-  margin: $background-bar-padding;
-  margin-bottom: 0px;
+  padding: $background-bar-padding;
+  padding-bottom: 0px;
   background-color: unset;
   .left {
     background-color: $background;
@@ -164,7 +164,8 @@ window {
   color: $text;
   font-family: "Sarasa Mono CL Nerd Font";
 }
-.system-resources {
-  margin-left: $widget-padding;
-  margin-right: $widget-padding;
-}
+// .system-resources {
+//   background-color: ;
+//   padding-left: $widget-padding;
+//   padding-right: $widget-padding;
+// }
