@@ -1,7 +1,7 @@
 #!/bin/bash
 gen_workspace_literal () {
   # CURRENT_WORKSPACE="$(hyprctl activewindow | grep workspace | awk '{print $2}')"
-  for id in {1..10}; do
+  for id in {1..5}; do
     if hyprctl workspaces | grep -A1 "workspace ID $id" | grep -v -e "0" -e "^$" -e "workspace ID" >/dev/null; then
       button_class="occupied"
       button_name=""

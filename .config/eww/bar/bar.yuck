@@ -21,7 +21,8 @@
 ;; =======================
 ;; === Variables START ===
 ;; =======================
-(defvar workspaces_group_1 "(box :orientation \"h\" :class \"workspaces\" :space-evenly true :halign \"center\" :valign \"center\" :hexpand true (button :class \"empty inactive\" :onclick \"hyprctl dispatch workspace 1\" \"\")(button :class \"empty inactive\" :onclick \"hyprctl dispatch workspace 2\" \"\")(button :class \"empty inactive\" :onclick \"hyprctl dispatch workspace 3\" \"\")(button :class \"empty inactive\" :onclick \"hyprctl dispatch workspace 4\" \"\")(button :class \"empty inactive\" :onclick \"hyprctl dispatch workspace 5\" \"\")(button :class \"empty inactive\" :onclick \"hyprctl dispatch workspace 6\" \"\")(button :class \"empty inactive\" :onclick \"hyprctl dispatch workspace 7\" \"\")(button :class \"empty inactive\" :onclick \"hyprctl dispatch workspace 8\" \"\")(button :class \"empty inactive\" :onclick \"hyprctl dispatch workspace 9\" \"\")(button :class \"empty inactive\" :onclick \"hyprctl dispatch workspace 10\" \"\"))")
+(defvar workspaces_group_1
+  "(box :orientation \"h\" :class \"workspaces\" :space-evenly true :halign \"center\" :valign \"center\" :hexpand true (button :class \"empty inactive\" :onclick \"hyprctl dispatch workspace 1\" \"\"))")
 
 (defpoll date
   :interval  "1s"
