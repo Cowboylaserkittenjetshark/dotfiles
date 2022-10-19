@@ -51,7 +51,7 @@ scale trough highlight {
 window {
   background: $background;
   color: $foreground;
-  font-family: "Sarasa Mono CL Nerd Font";
+  font-family: "Iosevka Fixed Extended";
   font-size: 14px;
   border-radius: 10px;
 
@@ -96,7 +96,6 @@ window {
 
 // Labels
 .volume-bar {
-  font-family: "Material Icons";
   color: $teal;
   .volume-icon {
     padding: $icon-padding;
@@ -162,7 +161,7 @@ window {
 .date {
   background-color: $background;
   color: $text;
-  font-family: "Sarasa Mono CL Nerd Font";
+  font-family: "Iosevka Fixed Extended";
 }
 // .system-resources {
 //   background-color: ;
