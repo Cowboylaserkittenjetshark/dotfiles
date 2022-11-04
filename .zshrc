@@ -7,6 +7,7 @@ bindkey -v
 # The following lines were added by compinstall
 zstyle :compinstall filename '$HOME/.zshrc'
 
+fpath=(~/.zsh/completions/ $fpath)
 autoload -Uz compinit
 compinit -d $HOME/.cache/zsh/zcompdump-$ZSH_VERSION # Moves .zcompdump out of $HOME
 # End of lines added by compinstall
