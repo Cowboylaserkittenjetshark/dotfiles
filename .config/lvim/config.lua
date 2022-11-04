@@ -10,8 +10,9 @@ an executable
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save = true
+lvim.format_on_save = false
 lvim.colorscheme = "catppuccin"
+lvim.transparent_window = true
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -43,6 +44,10 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 --     ["<C-k>"] = actions.move_selection_previous,
 --   },
 -- }
+
+-- Change theme settings
+-- lvim.builtin.theme.options.dim_inactive = true
+-- lvim.builtin.theme.options.style = "storm"
 
 -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
@@ -82,7 +87,7 @@ lvim.builtin.treesitter.ensure_installed = {
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
-lvim.builtin.treesitter.highlight.enabled = true
+lvim.builtin.treesitter.highlight.enable = true
 
 -- generic LSP settings
 
@@ -161,7 +166,9 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- Additional Plugins
 lvim.plugins = {
-    {"catppuccin/nvim"}
+    {"catppuccin/nvim"},
+    {"elkowar/yuck.vim"},
+    {"gpanders/nvim-parinfer"}
 --     {"folke/tokyonight.nvim"},
 --     {
 --       "folke/trouble.nvim",
@@ -182,77 +189,3 @@ lvim.plugins = {
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
-
--- local catppuccin = require("catppuccin")
-
--- -- configure it
--- catppuccin.setup({transparent_background = false,
--- term_colors = false,
--- styles = {
---       comments = "italic",
---       conditionals = "italic",
---       loops = "NONE",
---       functions = "NONE",
---       keywords = "NONE",
---       strings = "NONE",
---       variables = "NONE",
---       numbers = "NONE",
---       booleans = "NONE",
---       properties = "NONE",
---       types = "NONE",
---       operators = "NONE",
---   },
---   integrations = {
---       treesitter = true,
---       native_lsp = {
---           enabled = true,
---           virtual_text = {
---               errors = "italic",
---               hints = "italic",
---               warnings = "italic",
---               information = "italic",
---             },
---           underlines = {
---               errors = "underline",
---               hints = "underline",
---               warnings = "underline",
---               information = "underline",
---             },
---         },
---       lsp_trouble = false,
---       cmp = true,
---       lsp_saga = false,
---       gitgutter = false,
---       gitsigns = true,
---       telescope = true,
---       nvimtree = {
---           enabled = true,
---           show_root = false,
---           transparent_panel = false,
---         },
---       neotree = {
---           enabled = false,
---           show_root = false,
---           transparent_panel = false,
---         },
---       which_key = false,
---       indent_blankline = {
---           enabled = true,
---           colored_indent_levels = false,
---         },
---       dashboard = true,
---       neogit = false,
---       vim_sneak = false,
---       fern = false,
---       barbar = false,
---       bufferline = true,
---       markdown = true,
---       lightspeed = false,
---       ts_rainbow = false,
---       hop = false,
---       notify = true,
---       telekasten = true,
---       symbols_outline = true,
---   }
--- })
-vim.g.catppuccin_flavour = "mocha"
