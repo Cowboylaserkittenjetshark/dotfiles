@@ -21,8 +21,11 @@
 ;; =======================
 ;; === Variables START ===
 ;; =======================
-(defvar workspaces_group_1
-  "(box :orientation \"h\" :class \"workspaces\" :space-evenly true :halign \"center\" :valign \"center\" :hexpand true (button :class \"empty inactive\" :onclick \"hyprctl dispatch workspace 1\" \"\"))")
+; (defvar workspaces_group_1
+;   "(box :orientation \"h\" :class \"workspaces\" :space-evenly true :halign \"center\" :valign \"center\" :hexpand true (button :class \"empty inactive\" :onclick \"hyprctl dispatch workspace 1\" \"\"))")
+(deflisten workspaces
+  :initial "(box :orientation \"h\" :class \"workspaces\" :space-evenly true :halign \"center\" :valign \"center\" :hexpand true (button :class \"empty inactive\" :onclick \"hyprctl dispatch workspace 1\" \"\"))"
+  './bar/workspaces.sh')
 
 (defpoll date
   :interval  "1s"
@@ -73,7 +76,7 @@
     :space-evenly false
     :spacing internal_spacing
     (workspaces
-      :workspace_literal workspaces_group_1)
+      :workspace_literal workspaces)
     (updates)))
 
 (defwidget center_bar_layout []
