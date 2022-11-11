@@ -41,7 +41,6 @@
   "pactl get-sink-volume @DEFAULT_SINK@ | awk '{print substr($5, 1, length($5)-1)}'")
 
 (defvar monitor 0)
-(defvar is_laptop false)
 (defvar volume_bar_visible false)
 (defvar sink "@DEFAULT_SINK@")
 ;; ---------
@@ -158,8 +157,8 @@
 
 (defwidget battery_status []
   (circular-progress
-    :value {EWW_BATTERY == "" ? "" : EWW_BATTERY.total_avg}
-    :visible is_laptop
+    :value EWW_BATTERY?.total_avg
+    :visible {EWW_BATTERY?.total_avg == "" ? false : true}
     :start-at 37.5
     :clockwise true
     :thickness 4
