@@ -21,11 +21,9 @@
 ;; =======================
 ;; === Variables START ===
 ;; =======================
-; (defvar workspaces_group_1
-;   "(box :orientation \"h\" :class \"workspaces\" :space-evenly true :halign \"center\" :valign \"center\" :hexpand true (button :class \"empty inactive\" :onclick \"hyprctl dispatch workspace 1\" \"\"))")
 (deflisten workspaces
-  :initial "(box :orientation \"h\" :class \"workspaces\" :space-evenly true :halign \"center\" :valign \"center\" :hexpand true (button :class \"empty inactive\" :onclick \"hyprctl dispatch workspace 1\" \"\"))"
-  './bar/workspaces.sh')
+  :initial '{}'
+  './scripts/workspaces.sh')
 
 (defpoll date
   :interval  "1s"
@@ -35,13 +33,14 @@
 (defpoll updates
   :initial ""
   :interval "5m"
-  "./bar/updates-pacman-aurhelper.sh &")
+  "./scripts/updates-pacman-aurhelper.sh &")
 
 (defpoll current_volume
   :initial 40
   :interval "10s"
   "pactl get-sink-volume @DEFAULT_SINK@ | awk '{print substr($5, 1, length($5)-1)}'")
 
+(defvar monitor 0)
 (defvar is_laptop false)
 (defvar volume_bar_visible false)
 (defvar sink "@DEFAULT_SINK@")
@@ -76,7 +75,7 @@
     :space-evenly false
     :spacing internal_spacing
     (workspaces
-      :workspace_literal workspaces)
+      :json workspaces)
     (updates)))
 
 (defwidget center_bar_layout []
@@ -96,10 +95,18 @@
 ;; --------------
 ;; - Workspaces -
 ;; --------------
-(defwidget workspaces [workspace_literal]
-  (literal
-    :valign "center"
-    :content workspace_literal))
+(defwidget workspaces [json]
+  (eventbox
+    :onscroll "./scripts/workspaceScroll.sh {}"
+    (box
+      :orientation "h"
+      :class "workspaces"
+      (for WORKSPACE in {json.workspaces}
+           (button
+             :class {WORKSPACE.id == json?.monitors[monitor]?.activeWorkspace?.id ? "active" : "occupied"}
+             :onclick "hyprctl dispatch workspace ${WORKSPACE.id}" {WORKSPACE.name})))))
+ 
+   
 ;;
 ;; --------------------
 ;; - System Resources -

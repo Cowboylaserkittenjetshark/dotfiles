@@ -26,9 +26,9 @@ $blue-gray: #6D8895;
 $mantle: #181825;
 $text: #CDD6F4;
 // Padding
-$background-bar-padding: 5px;
-$subbar-padding-sides: 10px;
-$subbar-padding-tob-bottom:5px;
+$background-bar-padding: 1px;
+$subbar-padding-sides: 7px;
+$subbar-padding-tob-bottom: 0px;
 $widget-padding: 5px;
 $icon-padding: 7px;
 // Shaping
@@ -162,6 +162,9 @@ window {
   background-color: $background;
   color: $text;
   font-family: "Iosevka Fixed Extended";
+}
+box * {
+  transition: all 1s;
 }
 // .system-resources {
 //   background-color: ;
