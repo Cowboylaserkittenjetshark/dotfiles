@@ -9,11 +9,10 @@ zstyle :compinstall filename '$HOME/.zshrc'
 
 fpath=(~/.zsh/completions/ $fpath)
 autoload -Uz compinit
-compinit -d $HOME/.cache/zsh/zcompdump-$ZSH_VERSION # Moves .zcompdump out of $HOME
+compinit
 # End of lines added by compinstall
 #
 # Prompt ZSH
-neofetch | lolcat
 autoload -Uz promptinit; promptinit
 prompt pure
 #
@@ -42,11 +41,8 @@ export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 ### Aliases ###
 alias ls='ls --color=auto'
 alias ip='ip -c'
-alias a='alsamixer'
-alias kfox='pkill -f firefox'
-alias wiki='nvim +VimwikiIndex'
-alias diary='nvim +VimwikiDiaryIndex'
 alias dotgit='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME' # Dotfiles
+
 ## XDG Related Aliases ##
 alias dosbox=dosbox -conf "$XDG_CONFIG_HOME"/dosbox/dosbox.conf
 alias nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings
@@ -149,10 +145,10 @@ if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integr
 ### Syntax highlighting and  autosuggestions ###
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 # Init Node Version Manager
-source /usr/share/nvm/nvm.sh
-source /usr/share/nvm/bash_completion
-source /usr/share/nvm/install-nvm-exec
+# source /usr/share/nvm/nvm.sh
+# source /usr/share/nvm/bash_completion
+# source /usr/share/nvm/install-nvm-exec
