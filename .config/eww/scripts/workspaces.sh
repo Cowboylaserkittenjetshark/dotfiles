@@ -7,7 +7,7 @@ getJson() {
   }
 getJson
 while read -r line; do
-  if [[ ${line:0:9} == "workspace" ]]; then
+  if [[ ${line:0:16} == "destroyworkspace" || ${line:0:9} == "workspace" ]]; then
     getJson
   fi
 done < <(socat -U - UNIX-CONNECT:/tmp/hypr/"$HYPRLAND_INSTANCE_SIGNATURE"/.socket2.sock)
