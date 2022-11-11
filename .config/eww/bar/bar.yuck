@@ -157,7 +157,7 @@
 
 (defwidget battery_status []
   (circular-progress
-    :value EWW_BATTERY?.total_avg
+    :value {EWW_BATTERY?.total_avg}
     :visible {EWW_BATTERY?.total_avg == "" ? false : true}
     :start-at 37.5
     :clockwise true
