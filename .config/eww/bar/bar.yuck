@@ -158,14 +158,14 @@
 (defwidget battery_status []
   (circular-progress
     :value {EWW_BATTERY?.total_avg}
-    :visible {EWW_BATTERY?.total_avg == "" ? false : true}
+    :visible {EWW_BATTERY == "" ? false : true}
     :start-at 37.5
     :clockwise true
     :thickness 4
     :class "battery"
     (image
       :class "battery-icon"
-      :path {EWW_BATTERY["BAT0"].status == "Charging" ? battery_charging_icon : battery_discharging_icon}
+      :path {EWW_BATTERY["BAT0"]?.status == "Charging" ? battery_charging_icon : battery_discharging_icon}
       :image-width icon_size)))
 ;;
 ;; --------------
