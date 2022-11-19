@@ -11,3 +11,5 @@
 	required = true
 [status]
 	showUntrackedFiles = no
+[commit]
+	gpgsign = true
