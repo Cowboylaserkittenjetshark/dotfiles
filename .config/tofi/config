@@ -40,7 +40,7 @@
 	text-color = #cdd6f4
 
 	# Selection text
-	selection-color = #a6e3a1
+	selection-color = #cba6f7
 
 	# Matching portion of selection text
 	selection-match-color = #89dceb
