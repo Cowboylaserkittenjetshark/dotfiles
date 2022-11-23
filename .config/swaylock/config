@@ -1,6 +1,8 @@
+daemonize
 screenshots
 effect-blur=10x3
-effect-vignette=0.5:1
+fade-in=5
+grace=5
 clock
 font=Iosevka
 bs-hl-color=eba0ac
