@@ -1,7 +1,7 @@
 daemonize
 screenshots
 effect-blur=10x3
-fade-in=5
+fade-in=0.5
 grace=5
 clock
 font=Iosevka
