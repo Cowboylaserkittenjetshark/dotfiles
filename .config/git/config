@@ -1,7 +1,7 @@
 [user]
 	name = Cowboylaserkittenjetshark
 	email = 82691052+Cowboylaserkittenjetshark@users.noreply.github.com
-	signingkey = 00A5338A68220B4E
+	signingkey = 9C7F55754A8589A7
 [core]
 	excludesFile = global.gitignore
 
