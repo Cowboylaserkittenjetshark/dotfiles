@@ -1,0 +1,12 @@
+[Unit]
+Description=mpDris2 - Music Player Daemon D-Bus bridge
+
+[Service]
+Type=simple
+Restart=on-failure
+ExecStart= /bin/mpDris2 --use-journal
+BusName=org.mpris.MediaPlayer2.mpd
+
+[Install]
+WantedBy=default.target
+

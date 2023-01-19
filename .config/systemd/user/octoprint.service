@@ -1,0 +1,13 @@
+[Unit]
+Description=The snappy web interface for your 3D printer
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Environment="LC_ALL=C.UTF-8"
+Environment="LANG=C.UTF-8"
+Type=simple
+ExecStart=%h/OctoPrint/bin/octoprint
+
+[Install]
+WantedBy=default.target
