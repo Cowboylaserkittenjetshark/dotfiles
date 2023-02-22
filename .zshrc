@@ -146,6 +146,7 @@ zstyle ':completion::complete:*' gain-privileges 1
 ### Kitty Shell Integration ###
 if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/zsh/kitty.zsh"; then source "$KITTY_INSTALLATION_DIR/shell-integration/zsh/kitty.zsh"; fi
 ### Syntax highlighting and  autosuggestions ###
+source $HOME/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # export PYENV_ROOT="$HOME/.pyenv"
