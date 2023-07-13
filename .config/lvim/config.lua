@@ -134,8 +134,8 @@ local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   {
     command = "clang-format",
-    filetypes = {"java"},
-    extra_args = {"--style", "Google"},
+    filetypes = { "java" },
+    extra_args = { "--style", "Google" },
   }
   -- { command = "black", filetypes = { "python" } },
   -- { command = "isort", filetypes = { "python" } },
@@ -170,14 +170,14 @@ formatters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
-    {"catppuccin/nvim"},
-    {"elkowar/yuck.vim"},
-    {"gpanders/nvim-parinfer"}
---     {"folke/tokyonight.nvim"},
---     {
---       "folke/trouble.nvim",
---       cmd = "TroubleToggle",
---     },
+  { "catppuccin/nvim" },
+  { "elkowar/yuck.vim" },
+  { "gpanders/nvim-parinfer" }
+  --     {"folke/tokyonight.nvim"},
+  --     {
+  --       "folke/trouble.nvim",
+  --       cmd = "TroubleToggle",
+  --     },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
