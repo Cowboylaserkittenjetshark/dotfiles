@@ -8,27 +8,31 @@ $foreground: #EBDBB2;
 $sep: #DDB6F2;
 $white: #F5E0DC;
 $black: #161320;
-$red: #ed8796;
-$pink: #f5bde6;
-$purple: #c6a0f6;
+$red: #f38ba8;
+$maroon: #eba0ac;
+$pink: #f5c2e7;
+$purple: #B4BEFE;
+$mauve: #cba6f7;
 $blue: #8aadf4;
 $cyan: #7dc4e4;
-$teal: #8bd5ca;
+$teal: #94D2E5;
 $green: #A6E3A1;
 $lime: #C9CBFF;
-$yellow: #eed49f;
+$yellow: #f9e2af;
 $amber: #F8BD96;
-$orange: #f5a97f;
+$peach: #fab387;
 $brown: #AC8476;
 $indigo: #6C77BB;
 $gray: #9E9E9E;
 $blue-gray: #6D8895;
 $mantle: #181825;
 $text: #CDD6F4;
+$overlay0: #6c7086;
+$overlay2: #9399b2;
 // Padding
 $background-bar-padding: 1px;
-$subbar-padding-sides: 7px;
-$subbar-padding-tob-bottom: 0px;
+$subbar-padding-sides: 5px;
+$subbar-padding-tob-bottom: 2px;
 $widget-padding: 5px;
 $icon-padding: 7px;
 // Shaping
@@ -44,7 +48,7 @@ scale trough {
 }
 scale trough highlight {
   all: unset;
-  background-color: $blue;
+  background-color: $overlay2;
   border-radius: 10px;
 }
 
@@ -62,23 +66,21 @@ window {
 
 // System resource widgets
 .memory {
-  color: $purple;
+  color: $yellow;
   .memory_icon {
     padding: $icon-padding;
   }
 }
 
 .cpu {
-  color:  $purple;
-  background-image: url('./images/memory.svg');
+  color:  $maroon;
   .cpu_icon {
     padding: $icon-padding;
-    color: $orange;
   }
 }
 
 .disk {
-  color: $purple;
+  color: $mauve;
   .disk_icon {
     padding: $icon-padding;
   }
