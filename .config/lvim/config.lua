@@ -134,8 +134,8 @@ local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   {
     command = "clang-format",
-    filetypes = {"java"},
-    extra_args = {"--style", "Google"},
+    filetypes = { "java" },
+    extra_args = { "--style", "Google" },
   }
   -- { command = "black", filetypes = { "python" } },
   -- { command = "isort", filetypes = { "python" } },
@@ -170,14 +170,14 @@ formatters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
-    {"catppuccin/nvim"},
-    {"elkowar/yuck.vim"},
-    {"gpanders/nvim-parinfer"}
---     {"folke/tokyonight.nvim"},
---     {
---       "folke/trouble.nvim",
---       cmd = "TroubleToggle",
---     },
+  { "catppuccin/nvim" },
+  { "elkowar/yuck.vim" },
+  { "gpanders/nvim-parinfer" }
+  --     {"folke/tokyonight.nvim"},
+  --     {
+  --       "folke/trouble.nvim",
+  --       cmd = "TroubleToggle",
+  --     },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
@@ -193,3 +193,28 @@ lvim.plugins = {
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
+local dap = require('dap')
+dap.adapters.codelldb = {
+  type = 'server',
+  port = "${port}",
+  executable = {
+    -- CHANGE THIS to your path!
+    command = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/") .. "bin/codelldb",
+    args = { "--port", "${port}" },
+
+    -- On windows you may have to uncomment this:
+    -- detached = false,
+  }
+}
+dap.configurations.cpp = {
+  {
+    name = 'Launch cpp debug',
+    type = 'codelldb',
+    request = 'launch',
+    program = function()
+      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+    end,
+    cwd = "${workspaceFolder}",
+    stopOnEntry = false,
+  },
+}
